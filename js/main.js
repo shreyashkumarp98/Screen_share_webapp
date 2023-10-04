@@ -3,7 +3,7 @@
 const preferredDisplaySurface = document.getElementById('displaySurface');
 const startButton = document.getElementById('startButton');
 const cropButton  = document.getElementById('cropButton');
-// const resetButton = document.getElementById('resetButton');
+const fullButton = document.getElementById('fullButton');
 
 
 const maxwidth = 1280;
@@ -78,6 +78,7 @@ if (adapter.browserDetails.browser === 'chrome' &&
 function handleSuccess(stream) {
     startButton.disabled = true;
     cropButton.disabled = false;
+    fullButton.disabled = false;
     preferredDisplaySurface.disabled = true;
     const video = document.querySelector('video');
     video.srcObject = stream;
@@ -155,6 +156,14 @@ cropButton.addEventListener('click', () => {
         const message = "you can't exceed width = " + maxwidth + " and height = " + maxheight;
         errorMsg(message)
     }
+});
+
+fullButton.addEventListener('click', () => {
+    canvas.requestFullscreen().catch((err) => {
+        alert(
+            `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`,
+        );
+    });
 });
 
 // resetButton.addEventListener('click', () => {
