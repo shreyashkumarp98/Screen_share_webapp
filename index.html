@@ -1,0 +1,60 @@
+<html>
+<head>
+
+    <meta charSet="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <title>getDisplayMedia</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+<div id="container">
+    <h6> Values => Left:(0 to 500)   Top:(0 to 500)   Right:(-200 to 500)   Bottom:(-200 to 500) </h6>
+    <canvas width="1280" height="720"></canvas>
+    <video id="gum-local"  autoPlay playsInline muted hidden></video>
+    <br>
+    <br>
+    <button id="startButton" disabled>Start</button>
+    <br>
+    <label>Left: </label>
+    <input type="text" id="x" placeholder="0">
+    <label>Top: </label>
+    <input type="text" id="y" placeholder="0">
+    <label>Right: </label>
+    <input type="text" id="width" placeholder="0">
+    <label>Bottom: </label>
+    <input type="text" id="height" placeholder="0">
+    <button id="cropButton" disabled>Crop</button>
+
+<!--    <button id="resetButton" disabled>Reset</button>-->
+
+    <fieldset id="options" style="display:none">
+        <legend>Advanced options</legend>
+        <select id="displaySurface">
+            <option value="default" selected>Show default sharing options</option>
+            <option value="browser">Prefer to share a browser tab</option>
+            <option value="window">Prefer to share a window</option>
+            <option value="monitor">Prefer to share an entire screen</option>
+        </select>
+    </fieldset>
+    <div id="errorMsg"></div>
+
+
+</div>
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="js/main.js"></script>
+
+<script src="js/lib/ga.js"></script>
+
+</body>
+</html>
